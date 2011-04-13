@@ -1,0 +1,20 @@
+<h1>Add to short url</h1>
+
+{% if error_message %}<p><strong>{{ error_message }}</strong></p>{% endif %}
+
+<form action="/add/" method="post">
+	<textarea name="url" rows="5" cols="36"></textarea>
+	<input type="submit" value="ADD" />
+</form>
+
+<h1>Recently Added</h1>
+
+{% if the_list %}
+	{% for s in the_list %}
+	<a href="http://qshort.net/{{s.surl}}/" target="_blank">{{s.surl}}</a>&nbsp;-->&gt;&nbsp;{{s.lurl}}<br />
+	{% endfor %}
+{% endif %}
+
+<h1>Admin</h1>
+
+<a href="http://upload.qshort.net/admin/surl/surl/" target="_blank">admin page</a>

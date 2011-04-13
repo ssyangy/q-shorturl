@@ -1,0 +1,15 @@
+安装 django
+http://docs.djangoproject.com/en/1.3/intro/install/
+
+安装 mod_wsgi
+http://code.google.com/p/modwsgi/wiki/InstallationInstructions
+
+将 000-default 中的 /var/www 都修改为当前目录
+如果域名不是qshort.net，也要做相应改动
+cp 000-default /etc/apache2/sites-enabled/
+
+创建空数据库 surl
+修改 getsurl/settings.py 中数据库连接的设置
+修改 putsurl/settings.py 中数据库连接的设置
+python getsurl/manage.py syncdb
+python putsurl/manage.py syncdb
