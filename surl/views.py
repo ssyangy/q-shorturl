@@ -17,7 +17,7 @@ def test(request,_surl):
 
 def putindex(request):
 	l=Surl.objects.all().order_by('-add_date')[:5]
-	return render_to_response('surl/index.html',{'the_list':l})
+	return render_to_response('putindex.html',{'the_list':l})
 
 def __gensurl(lurl):
 	RANDSEED = "1234567890abcdefghijklmnopqrstuvwxyzABCDEFGHIJKLMNOPQRSTUVWXYZ"
@@ -48,7 +48,7 @@ def add(request):
 	s.add_date=datetime.datetime.now()
 	#surl=pk
 	_surl=__gensurl(_lurl)
-	while Surl.objects.get(surl__exact=_surl):
+	while Surl.objects.filter(surl__exact=_surl):
 		_surl=__gensurl(_lurl)
 	s.surl=_surl
 	
